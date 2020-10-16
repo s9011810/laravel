@@ -1,0 +1,33 @@
+@extends('admin.admin_info')
+@section('admin_member_table')
+    <div class="table-responsive">
+    <table class="table table-dark table-bordered">
+        <thead>
+        <tr>
+            <td>會員編號</td>
+            <td>會員名稱</td>
+            <td>會員手機</td>
+            <td>會員郵箱</td>
+            <td>會員密碼</td>
+            <td>會員管理權限</td>
+            <td>訂單管理權限</td>
+            <td>電影管理權限</td>
+            <td>電影管理者</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>member123</td>
+            <td>02000000</td>
+            <td>s123@gmail.com</td>
+            <td>1111111</td>
+            <td>是</td>
+            <td>是</td>
+            <td>是</td>
+            <td>是</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+@endsection
