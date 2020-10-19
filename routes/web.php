@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index/movie_info');
+Route::get('/movies',function(){
+    $movies = DB::select('select * from movie');
+    return $movies;
 });
-Route::get('/login', function () {
-    return view('login/login_info');
-});
+Route::post('/check_login',[LoginController::class,'login']);
+Route::get('/',[MainController::class,'index']);
+Route::get('/login', [LoginController::class,'show']);
+Route::get('/success_login', [LoginController::class,'Success_Login']);
+Route::get('/logout', [LoginController::class,'logout']);
 Route::get('/register', function () {
     return view('register/register_info');
 });
@@ -34,3 +37,4 @@ Route::get('/admin_movie', function () {
 Route::get('/admin_order', function () {
     return view('admin/admin_order/admin_order_info');
 });
+

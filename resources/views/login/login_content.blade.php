@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
     <div class="col-md-8 offset-md-2">
-    <form>
+    <form method="POST" action="{{ route('login') }}">
         <div class="form-group">
             <label for="email" style="color: white">Email address:</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

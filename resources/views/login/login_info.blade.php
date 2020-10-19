@@ -6,18 +6,37 @@
     <div class="d-flex justify-content-center h-100">
         <div class="user_card">
             <div class="d-flex justify-content-center form_container">
-                <form>
+                @if(isset(Auth::user()->email))
+                    <script>window.location="/success_login";</script>
+                @endif
+                @if($message=Session::get('error'))
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dissmiss="alert">x</button>
+                        <strong>{{$message}}</strong>
+                    </div>
+                @endif
+                @if ((count($errors)>0))
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach($errors->all() as $errors)
+                            <li>{{$errors}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="POST" action="{{url('/check_login')}}">
+                    {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
-                        <input type="email" class="form-control"  value="" placeholder="Enter email">
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+                        <input type="password" name="password" class="form-control input_pass" placeholder="password">
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
@@ -26,7 +45,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn btn-danger">登入</button>
+                        <button type="submit" name="button" class="btn login_btn btn-danger"> 註冊</button>
                     </div>
                 </form>
             </div>
