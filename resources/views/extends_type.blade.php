@@ -41,6 +41,9 @@
                 @yield('register')
             </div>
             <div class="row mt-5">
+                @yield('verify_info')
+            </div>
+            <div class="row mt-5">
                 @yield('movie_info')
             </div>
             <div class="row">

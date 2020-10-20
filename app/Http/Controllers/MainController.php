@@ -10,4 +10,8 @@ class MainController extends Controller
     public function index(){
         return view('index/movie_info');
     }
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
 }

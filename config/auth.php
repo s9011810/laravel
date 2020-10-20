@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'passwords',
     ],
 
     /*
@@ -71,12 +71,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'theater_member'=>[
+            'redirectTo'=>'/',
+            'driver'=>'session',
+            'model' => App\Models\Models\Theater_Member::class,
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -91,7 +91,10 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    'member_password'=>[
+        'provider' => 'theater_member',
+        'table' => 'password_resets',
+    ],
     'passwords' => [
         'users' => [
             'provider' => 'users',

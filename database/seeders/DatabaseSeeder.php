@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
         DB::table('theater_member')->delete();
 
         User::create([
-            'name' => 'TonyC',
+            'name' => 'Tony',
             'email'    => 'tonyc@mail.com',
             'password' => Hash::make('password'),
+            'phone' => '0911111111',
         ]);
     }
 }

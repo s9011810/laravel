@@ -45,14 +45,14 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="submit" name="button" class="btn login_btn btn-danger"> 註冊</button>
+                        <button type="submit" name="button" class="btn login_btn btn-danger"> 登入</button>
                     </div>
                 </form>
             </div>
 
             <div class="mt-4">
                 <div class="d-flex justify-content-center links" style="color: white">
-                    沒有任何帳號? <a href="#" class="ml-2">註冊</a>
+                    沒有任何帳號? <a href="/register" class="ml-2">註冊</a>
                 </div>
                 <div class="d-flex justify-content-center links"  style="color: white">
                     <a href="#">忘記密碼?</a>

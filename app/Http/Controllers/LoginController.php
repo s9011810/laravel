@@ -25,9 +25,6 @@ class LoginController extends Controller
             return back()->with('error','Wrong Login Detail');
     }
     }
-    public function show_logout(){
-
-    }
     public function logout(){
         Auth::logout();
         return redirect('/');

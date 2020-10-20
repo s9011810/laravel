@@ -1,13 +1,13 @@
 @extends('extends_type')
 @section('movie_table_info')
-    @if(isset(Auth::user()->email))
-        <div class="alert alert-danger success-block">
-            <strong>Welcome!{{Auth::user()->email}}</strong>
-            <a href="{{url('logout')}}">Logout</a>
-        </div>
-    @else
-        <script>window.location="/login";</script>
-    @endif
+{{--    @if(isset(Auth::user()->email))--}}
+{{--        <div class="alert alert-danger success-block">--}}
+{{--            <strong>Welcome!{{Auth::user()->email}}</strong>--}}
+{{--            <a href="{{url('logout')}}">Logout</a>--}}
+{{--        </div>--}}
+{{--    @else--}}
+{{--        <script>window.location="/login";</script>--}}
+{{--    @endif--}}
     <table class="table table-dark table-responsive-md table-bordered">
         <thead>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Support\Facades\Mail;
 
 class VerificationController extends Controller
 {
@@ -39,4 +40,16 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+    //自訂義方法classic
+    public function send_email(){
+        $to_name = '接收者';
+        $to_email = 's9011810@gmail.com';
+        $data = array('name'=>"Ogbonna Vitalis(sender_name)", "body" => "A test mail");
+        Mail::send('email.mail', $data, function($message) use ($to_name, $to_email) {
+        $message->to($to_email, $to_name)
+        ->subject("驗證信");
+$message->from('roses9011810@gmail.com','驗證信');
+});
+    }
+
 }
