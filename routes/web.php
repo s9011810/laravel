@@ -64,3 +64,4 @@ Route::post('/member_detail/{id}', [MemberController::class,'update'])->middlewa
 Route::get('/admin_member/{id}', [AdminController::class,'show_member'])->middleware('verified');
 Route::post('/admin_member/{id}', [AdminController::class,'show_member'])->middleware('verified');
 Route::get('/admin_member/destroy/{id}', [AdminController::class,'delete_member'])->middleware('verified');
+Route::get('/admin_member/check/{id}', [AdminController::class,'check_admin_member'])->middleware('verified');

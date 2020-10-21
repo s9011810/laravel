@@ -43,7 +43,9 @@
                 @else
                     <td>否</td>
                 @endif
-                <td><a class="nav-link" href="/admin_member/destroy/{{$user_num['id']}}">刪除</a></td>
+                @if($user_num['id']!=Auth::id())
+                    <td><a class="nav-link" href="/admin_member/destroy/{{$user_num['id']}}">刪除</a></td>
+                @endif
             </tr>
         @endforeach
         </tbody>

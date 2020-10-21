@@ -70,7 +70,7 @@ class RegisterController extends Controller
         ]);
         $user = User::create(request(['name', 'email', 'password','phone','address']));
         auth()->login($user);
-        return redirect()->to('/');
+        return redirect()->to('/email/verify');
     }
     /**
      * Create a new user instance after a valid registration.
