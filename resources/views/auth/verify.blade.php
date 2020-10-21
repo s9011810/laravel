@@ -1,24 +1,24 @@
 @extends('extends_type')
-@section('activate_info')
-@endsection
-@section('verify_info')
+
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><strong>郵件認證</strong></div>
+                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('驗證連結已傳到您的信箱') }}
+                            {{ __('A fresh verification link has been sent to your email address.') }}
                         </div>
                     @endif
-                    {{ __('請檢查是否已經收到郵件連結.') }}
-                    {{ __('假如沒有收到驗證連結') }},
+
+                    {{ __('Before proceeding, please check your email for a verification link.') }}
+                    {{ __('If you did not receive the email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline"><strong>再次寄送認證</strong></button>
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
                     </form>
                 </div>
             </div>

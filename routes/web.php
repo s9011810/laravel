@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Theater_Member;
+use App\Http\Controllers\HomeController;
+//use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +23,19 @@ use App\Models\Theater_Member;
 //    return $movies;
 //});
 Route::post('/check_login',[LoginController::class,'login']);
-Route::get('/',[MainController::class,'index']);
+Route::get('/',function (){
+    return view('index/movie_info');
+});
+Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/login', [LoginController::class,'show'])->name('login');
 Route::post('/login', [LoginController::class,'show']);
 Route::get('/success_login', [LoginController::class,'Success_Login']);
 Route::get('/logout', [LoginController::class,'logout']);
-Route::get('register', [RegisterController::class,'show']);
-Route::post('register', [RegisterController::class,'store']);
+Route::get('register', [RegisterController::class,'show'])->name('register');
+Route::post('register', [RegisterController::class,'create'])->name('register');
 Route::get('/movie', function () {
     return view('movie/movie_info');
-});
+})->middleware('verified');
 Route::get('/admin', function () {
     return view('admin/admin_member/admin_member_table');
 });
@@ -40,11 +46,15 @@ Route::get('/admin_order', function () {
     return view('admin/admin_order/admin_order_info');
 });
 Route::get('/find', function () {
-    $theater_members = Theater_Member::all();
-    foreach ($theater_members as $theater_member) {
-        return $theater_member;
+    $users = User::all();
+    foreach ($users as $user) {
+        return $users;
     }
 });
-Auth::routes(['verify' => true]);
-Route::get('/profile', [\App\Http\Controllers\Auth\VerificationController::class,'show']);
-Route::get('/send_mail', [\App\Http\Controllers\Auth\VerificationController::class,'send_email']);
+Auth::routes(['verify'=>true]);
+Route::get('email/verify', [VerificationController::class,'show'])->name('verification.notice');
+Route::get('email/verify/{id}', [VerificationController::class,'verify'])->name('verification.verify');
+Route::get('email/resend', [VerificationController::class,'send_email'])->name('verification.resend');
+Route::post('email/resend', [VerificationController::class,'send_email']);
+Route::get('/profile/{id}',[VerificationController::class,'store']);
+

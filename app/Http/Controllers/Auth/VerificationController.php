@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MemberChecked;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-
 class VerificationController extends Controller
 {
     /*
@@ -40,7 +42,7 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
-    //自訂義方法classic
+
     public function send_email(){
         $to_name = '接收者';
         $to_email = 's9011810@gmail.com';
@@ -51,5 +53,31 @@ class VerificationController extends Controller
 $message->from('roses9011810@gmail.com','驗證信');
 });
     }
+    public function resend(Request $request)
+    {
+        return View('verify/verify_info');
+    }
+    public function show()
+    {
+        return View('verify/verify_info');
+    }
+    public function verify(Request $request)
+    {
+        $user = User::find($request->route('id'));
 
+        if (!hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
+            throw new AuthorizationException;
+        }
+
+        if ($user->markEmailAsVerified())
+            event(new Verified($user));
+
+        return redirect($this->redirectPath())->with('verified', true);
+    }
+    public function store($request){
+        $users = User::find($request);
+      $users->email_verified_at = $users->updated_at;
+        $users->save();
+
+    }
 }

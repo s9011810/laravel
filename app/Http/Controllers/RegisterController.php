@@ -12,21 +12,21 @@ class RegisterController extends Controller
     public function show(){
         return View('register/register_info');
     }
-    public function store(){
-        $this->validate(request(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'numeric', 'min:11'],
-            'address' => ['required', 'string', 'max:255'],
-        ]);
-
-        $user = User::create(request(['name', 'email', 'password','phone','address']));
-
-        auth()->login($user);
-
-        return redirect()->to('/');
-    }
+//    public function store(){
+//        $this->validate(request(), [
+//            'name' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'phone' => ['required', 'numeric', 'min:11'],
+//            'address' => ['required', 'string', 'max:255'],
+//        ]);
+//
+//        $user = User::create(request(['name', 'email', 'password','phone','address']));
+//
+//        auth()->login($user);
+//
+//        return redirect()->to('/');
+//    }
 //    protected function validator(array $data)
 //    {
 //        return Validator::make($data, [

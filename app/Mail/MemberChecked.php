@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
 class MemberChecked extends Mailable
 {
@@ -16,9 +17,14 @@ class MemberChecked extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $trainer;
+    public $trainee;
+    public $user;
+    public function __construct($trainer, $trainee)
     {
         //
+        $this->trainer = $trainer;
+        $this->trainee = $trainee;
     }
 
     /**
@@ -28,6 +34,8 @@ class MemberChecked extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+
+    return $this->subject('New assignment from'.$this->trainer->name)->view('emails.member_checked');
+
     }
 }

@@ -57,7 +57,21 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
         ]);
     }
-
+    public function showRegistrationForm(){
+        return View('register.register_info');
+    }
+    public function register(){
+        $this->validate(request(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'numeric', 'min:11'],
+            'address' => ['required', 'string', 'max:255'],
+        ]);
+        $user = User::create(request(['name', 'email', 'password','phone','address']));
+        auth()->login($user);
+        return redirect()->to('/');
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -71,7 +85,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'phone'=> $data['phone'],
             'address'=> $data['address'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\WorkoutAvailable;
 
 class Theater_Member extends Authenticatable
 {
@@ -16,4 +17,5 @@ class Theater_Member extends Authenticatable
     public function getAuthPassword(){//overwrite Auth getAuthPassword
         return $this->User_Password;
     }
+
 }
