@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\MemberController;
 use App\Models\User;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +59,8 @@ Route::get('email/verify/{id}', [VerificationController::class,'verify'])->name(
 Route::get('email/resend', [VerificationController::class,'send_email'])->name('verification.resend');
 Route::post('email/resend', [VerificationController::class,'send_email']);
 Route::get('/profile/{id}',[VerificationController::class,'store']);
-Route::get('/member_detail/{id}', [MemberController::class,'show']);
-Route::post('/member_detail/{id}', [MemberController::class,'update']);
-
+Route::get('/member_detail/{id}', [MemberController::class,'show'])->middleware('verified');
+Route::post('/member_detail/{id}', [MemberController::class,'update'])->middleware('verified');
+Route::get('/admin_member/{id}', [AdminController::class,'show_member'])->middleware('verified');
+Route::post('/admin_member/{id}', [AdminController::class,'show_member'])->middleware('verified');
+Route::get('/admin_member/destroy/{id}', [AdminController::class,'delete_member'])->middleware('verified');

@@ -52,6 +52,7 @@ class VerificationController extends Controller
         ->subject("驗證信");
 $message->from('roses9011810@gmail.com','驗證信');
 });
+        return redirect('/');
     }
     public function resend(Request $request)
     {
@@ -78,6 +79,6 @@ $message->from('roses9011810@gmail.com','驗證信');
         $users = User::find($request);
       $users->email_verified_at = $users->updated_at;
         $users->save();
-
+        return redirect('/');
     }
 }
