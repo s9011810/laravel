@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 //use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\MemberController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,6 @@ Route::get('email/verify/{id}', [VerificationController::class,'verify'])->name(
 Route::get('email/resend', [VerificationController::class,'send_email'])->name('verification.resend');
 Route::post('email/resend', [VerificationController::class,'send_email']);
 Route::get('/profile/{id}',[VerificationController::class,'store']);
+Route::get('/member_detail/{id}', [MemberController::class,'show']);
+Route::post('/member_detail/{id}', [MemberController::class,'update']);
 

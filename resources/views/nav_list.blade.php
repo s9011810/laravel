@@ -4,7 +4,7 @@
     </li>
     @if(isset(Auth::user()->email))
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-layer-group"></i>{{Auth::user()->email}}</a>
+            <a class="nav-link" href="/member_detail/{{Auth::id()}}"><i class="fas fa-layer-group"></i>{{Auth::user()->email}}</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/logout"><i class="fas fa-sign-in-alt"></i>登出</a>

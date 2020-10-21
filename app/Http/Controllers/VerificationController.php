@@ -36,8 +36,8 @@ class VerificationController extends Controller
     {
         return View('verify/verify_info');
     }
-    public function store(Request $request){
-        $users = User::find(1);
+    public function store($request){
+        $users = User::find($request);
         $users->name = 'New Flight Name';
         $users->save();
     }

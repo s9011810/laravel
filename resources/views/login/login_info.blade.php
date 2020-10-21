@@ -38,12 +38,12 @@
                         </div>
                         <input type="password" name="password" class="form-control input_pass" placeholder="password">
                     </div>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline" style="color: white">記住我</label>
-                        </div>
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <div class="custom-control custom-checkbox">--}}
+{{--                            <input type="checkbox" class="custom-control-input" id="customControlInline">--}}
+{{--                            <label class="custom-control-label" for="customControlInline" style="color: white">記住我</label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="d-flex justify-content-center mt-3 login_container">
                         <button type="submit" name="button" class="btn login_btn btn-danger"> 登入</button>
                     </div>
