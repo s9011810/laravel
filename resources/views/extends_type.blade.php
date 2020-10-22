@@ -14,7 +14,7 @@
         <!-- awesome icon-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     </head>
-    <body style="background-color: #1a202c">
+    <body style="background-color: #1a202c;overflow: scroll;">
         <div class="container-fluid">
 			<div class="row">
 				@include('nav')
@@ -48,6 +48,14 @@
             </div>
             <div class="row">
                 @yield('admin_member_table')
+            </div>
+            <div class="row">
+                @yield('admin_movie_table')
+            </div>
+            <div class="row">
+                @yield('check_member')
+            </div><div class="row">
+                @yield('movie_create')
             </div>
             <div class="row">
                 @include('footer')

@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\MemberController;
 use App\Models\User;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MovieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,3 +66,7 @@ Route::get('/admin_member/{id}', [AdminController::class,'show_member'])->middle
 Route::post('/admin_member/{id}', [AdminController::class,'show_member'])->middleware('verified');
 Route::get('/admin_member/destroy/{id}', [AdminController::class,'delete_member'])->middleware('verified');
 Route::get('/admin_member/check/{id}', [AdminController::class,'check_admin_member'])->middleware('verified');
+Route::get('/admin_movie/{id}',[MovieController::class,'show']);
+Route::post('/admin_movie/{id}', [MovieController::class,'store'])->name('create_movie');
+Route::get('/admin_movie/create/{id}', [MovieController::class,'test_create']);
+Route::post('/admin_movie/create/{id}', [MovieController::class,'store']);

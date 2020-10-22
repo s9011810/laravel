@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4f5e9f72-dd3e-4d13-b63e-012487d7aef5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin_member/admin_member_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin_member/admin_member_table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin_movie/admin_movie_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin_movie/admin_movie_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/extends_type.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/extends_type.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,6 +201,7 @@
       <workItem from="1602819141532" duration="53173000" />
       <workItem from="1603103758686" duration="55550000" />
       <workItem from="1603271637959" duration="6313000" />
+      <workItem from="1603333210916" duration="14657000" />
     </task>
     <servers />
   </component>
@@ -222,10 +221,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603265824419">
+    <state x="398" y="164" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603338520895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603265824419" />
+    <state x="398" y="164" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603338520895" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603351161499">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603351161499" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1602731466087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
