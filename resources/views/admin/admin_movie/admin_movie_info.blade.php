@@ -25,6 +25,7 @@
                 <td>{{$movie['Movie_Story']}}</td>
                 <td>{{$movie['Movie_Time']}}</td>
                 <td>{{$movie['Movie_Class']}}</td>
+                <td><a href="/admin_movie/update/{{$movie['Movie_ID']}}">修改</a> </td>
             </tr>
             @endforeach
             </tbody>
