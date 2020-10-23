@@ -71,5 +71,6 @@ Route::get('/admin_movie/{id}',[MovieController::class,'show']);
 Route::get('/admin_movie/create/{id}', [MovieController::class,'showMovieForm']);
 //Route::post('/admin_movie/create', [MovieController::class,'show']);
 Route::post('/admin_movie/create/{id}', [MovieController::class,'new_Movie']);
-Route::post('/admin_movie/update/{id}', [MovieController::class,'edit_show']);
+Route::post('/admin_movie/update/{id}', [MovieController::class,'edit_update']);
 Route::get('/admin_movie/update/{id}', [MovieController::class,'edit_show']);
+Route::get('/admin_movie/delete/{id}', [MovieController::class,'delete_movie']);
