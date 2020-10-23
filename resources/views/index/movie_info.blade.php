@@ -8,7 +8,7 @@
 {{--    @else--}}
 {{--        <script>window.location="/login";</script>--}}
 {{--    @endif--}}
-    <table class="table table-dark table-responsive-md table-bordered">
+    <table class="table table-dark table-responsive-md table-bordered" id="movie_table">
         <thead>
 
         </thead>
@@ -20,11 +20,13 @@
             <td><img src="https://miro.medium.com/max/816/1*7VlWJ7Zvsc-yEwO-7sJPsw.jpeg" width="200px" height="300px"></td>
         </tr>
         <tr>
-            <td><p>刻在你心底的名字</p></td>
-            <td><p>無聲</p></td>
-            <td><p>怪胎</p></td>
-            <td><p>幻愛</p></td>
+            @foreach($movies as $movie)
+                <td><a href="/movie/{{$movie->id}}"> <p>{{$movie->Movie_Name}}</p></a></td>
+            @endforeach
         </tr>
         </tbody>
     </table>
     @stop
+<script>
+    
+</script>

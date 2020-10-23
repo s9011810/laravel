@@ -26,9 +26,7 @@ use App\Http\Controllers\MovieController;
 //    return $movies;
 //});
 Route::post('/check_login',[LoginController::class,'login']);
-Route::get('/',function (){
-    return view('index/movie_info');
-});
+Route::get('/',[MainController::class,'index']);
 Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/login', [LoginController::class,'show'])->name('login');
 Route::post('/login', [LoginController::class,'show']);
@@ -36,9 +34,7 @@ Route::get('/success_login', [LoginController::class,'Success_Login']);
 Route::get('/logout', [LoginController::class,'logout']);
 Route::get('register', [RegisterController::class,'show'])->name('register');
 Route::post('register', [RegisterController::class,'create'])->name('register');
-Route::get('/movie', function () {
-    return view('movie/movie_info');
-})->middleware('verified');
+Route::get('/movie/{id}',[MainController::class,'show_movie_info']);
 Route::get('/admin', function () {
     return view('admin/admin_member/admin_member_table');
 });
@@ -67,9 +63,7 @@ Route::post('/admin_member/{id}', [AdminController::class,'show_member'])->middl
 Route::get('/admin_member/destroy/{id}', [AdminController::class,'delete_member'])->middleware('verified');
 Route::get('/admin_member/check/{id}', [AdminController::class,'check_admin_member'])->middleware('verified');
 Route::get('/admin_movie/{id}',[MovieController::class,'show']);
-//Route::post('/admin_movie/{id}', [MovieController::class,'new_Movie']);
 Route::get('/admin_movie/create/{id}', [MovieController::class,'showMovieForm']);
-//Route::post('/admin_movie/create', [MovieController::class,'show']);
 Route::post('/admin_movie/create/{id}', [MovieController::class,'new_Movie']);
 Route::post('/admin_movie/update/{id}', [MovieController::class,'edit_update']);
 Route::get('/admin_movie/update/{id}', [MovieController::class,'edit_show']);
