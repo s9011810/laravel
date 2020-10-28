@@ -23,7 +23,7 @@
                 <td>{{$movie['Movie_Screened']}}</td>
                 <td>{{$movie['Movie_Off_Shelf']}}</td>
                 <td>{{$movie['Movie_Story']}}</td>
-                <td>{{$movie['Movie_Time']}}</td>
+                <td>{{$movie['Movie_Time_Hour']}}:{{$movie['Movie_Time_Min']}}:{{$movie['Movie_Time_Sec']}}</td>
                 <td>{{$movie['Movie_Class']}}</td>
                 <td><a href="/admin_movie/update/{{$movie['id']}}">修改</a> </td>
                 <td><a href="/admin_movie/delete/{{$movie['id']}}">下架</a> </td>

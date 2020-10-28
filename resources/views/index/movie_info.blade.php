@@ -28,5 +28,5 @@
     </table>
     @stop
 <script>
-    
+
 </script>

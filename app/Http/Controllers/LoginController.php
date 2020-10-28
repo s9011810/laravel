@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -30,6 +31,7 @@ class LoginController extends Controller
         return redirect('/');
     }
     public function Success_Login(){
-        return View('index/movie_info');
+        $movies=Movie::all();
+        return View('index/movie_info',compact('movies'));
     }
 }
