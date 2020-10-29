@@ -11,6 +11,7 @@ use App\Http\Controllers\MemberController;
 use App\Models\User;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SeatKindController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +73,5 @@ Route::get('/admin_movie/delete/{id}', [MovieController::class,'delete_movie']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin_theater/seat_kind/create/{id}',[SeatKindController::class,'show']);
+Route::post('/admin_theater/seat_kind/create/{id}',[SeatKindController::class,'Seat_Kind']);

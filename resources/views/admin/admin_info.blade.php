@@ -15,4 +15,5 @@
 @endsection
 @section('admin_movie_table')
 @endsection
-
+@section('admin_theater_table')
+@endsection

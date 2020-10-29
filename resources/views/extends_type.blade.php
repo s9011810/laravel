@@ -53,6 +53,9 @@
                 @yield('admin_movie_table')
             </div>
             <div class="row">
+                @yield('admin_theater_table')
+            </div>
+            <div class="row">
                 @yield('check_member')
             </div><div class="row">
                 @yield('movie_create')
